@@ -28,22 +28,25 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
-1. What is the DOM?
+1. What is the DOM?
 
+    DOM (the document object model) is a representation of the HTML that makes up a web page.
 
+2. What is an event?
 
-2. What is an event?
+    An event is when something "happens" on a page -- mostly when the user interacts with my page in some way.
 
-3. What is an event listener?
+3. What is an event listener?
 
+    Event listeners are functions that perform an action when an event they're "listening for" happens. 
 
-4. Why would we convert a NodeList into an Array?
+4. Why would we convert a NodeList into an Array?
 
+    Because NodeLists don't have many of the Array-like properties (`forEach`, `map`, `slice` etc) and we can't use methods on them.
 
+5. What is a component?
 
-5. What is a component?
-
-
+    A component is a HTML, CSS, and JavaScript used collectively for the purpose of making reusable custom elements. A dopdown menu is a component.
 
 ### Git Set up
 
