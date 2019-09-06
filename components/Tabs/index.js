@@ -17,7 +17,9 @@
             tab.classList.add('tab');
             tab.textContent = `${topic}`;
             topics.appendChild(tab);
+        
         });
+        console.log(res.data.topics);
 
     })
     .catch (error => {
