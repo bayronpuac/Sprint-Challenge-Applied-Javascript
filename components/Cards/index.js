@@ -33,8 +33,10 @@
 
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
     .then(res => {
-        console.log(res);
-        cards.appendChild(UserCard(res.data))
+        console.log(res.data);
+        const article = UserCard(res.data)
+        cards.appendChild(article)
+        console.log(article);
     })
     .catch (error => {
         console.log("this is an error", error)
