@@ -62,9 +62,9 @@ function UserCard(Card){
     newAuthor.classList.add('author');
     newimg.classList.add('img-container');
 
-    newHeadLine.textContent =  Card.articles.javascript[0].headline;
-    newimgSrc.src = Card.articles.javascript[0].authorPhoto;
-    newAuthorsName.textContent = Card.articles.javascript[0].authorName;
+        newHeadLine.textContent =  Card.articles.javascript[0].headline;
+        newimgSrc.src = Card.articles.javascript[0].authorPhoto;
+        newAuthorsName.textContent = Card.articles.javascript[0].authorName;
 
     return newCard
 }
