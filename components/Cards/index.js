@@ -18,7 +18,20 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-axios.get("https://lambda-times-backend.herokuapp.com/articles")
+// const articlesArray = ['javascript', 'bootstrap'];
+
+// articlesArray.forEach(articles => {
+//     axios.get(`https://lambda-times-backend.herokuapp.com/${articles}`)
+//         .then(res => {
+//             console.log(res);
+//             cards.appendChild(UserCard(res.data))
+//         })
+//         .catch (error => {
+//             console.log("this is an error", error)
+//           })
+//   })
+
+axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
     .then(res => {
         console.log(res);
         cards.appendChild(UserCard(res.data))
@@ -39,10 +52,9 @@ function UserCard(Card){
     const newAuthorsName = document.createElement("span");
 
     newCard.appendChild(newHeadLine);
-    newHeadLine.appendChild(newAuthor);
-    newAuthor.appendChild(newimg);
-    newAuthor.appendChild(newAuthorsName);
-    newimg.appendChild(newimgSrc);
+    newCard.appendChild(newimgSrc);
+    newCard.appendChild(newAuthor);
+    newAuthor.appendChild(newAuthorsName);
 
 
     newCard.classList.add('card');
@@ -50,58 +62,36 @@ function UserCard(Card){
     newAuthor.classList.add('author');
     newimg.classList.add('img-container');
 
-    newHeadLine.textContent =  Card.articles.headline;
-    newimgSrc.src = Card.articles.bootstrap[0].authorPhoto;
-    newAuthorsName.textContent = Card.articles.bootstrap[0].authorName;
+    newHeadLine.textContent =  Card.articles.javascript[0].headline;
+    newimgSrc.src = Card.articles.javascript[0].authorPhoto;
+    newAuthorsName.textContent = Card.articles.javascript[0].authorName;
 
     return newCard
 }
 
-function UserCard2(Card){
-    const newCard2 = document.createElement("div");
-    const newHeadLine = document.createElement("div");
-    const newAuthor = document.createElement("div");
-    const newimg = document.createElement("div");
-    const newimgSrc = document.createElement("img");
-    const newAuthorsName = document.createElement("span");
-
-    newCard2.appendChild(newHeadLine);
-    newCard2.appendChild(newAuthor);
-    newCard2.appendChild(newimg);
-    newCard2.appendChild(newimgSrc);
-    newCard2.appendChild(newAuthorsName);
-
-    newCard.classList.add('card');
-    newCard.classList.add('headline');
-    newCard.classList.add('author');
-    newCard.classList.add('img-container');
-
-    newHeadLine.textContent =  Card.articles.bootstrap[1].headline;
-
-    return newCard
-}
-function UserCard3(Card){
-    const newCard = document.createElement("div");
-    const newHeadLine = document.createElement("div");
-    const newAuthor = document.createElement("div");
-    const newimg = document.createElement("div");
-    const newimgSrc = document.createElement("img");
-    const newAuthorsName = document.createElement("span");
-
-    newCard.appendChild(newHeadLine);
-    newCard.appendChild(newAuthor);
-    newCard.appendChild(newimg);
-    newCard.appendChild(newimgSrc);
-    newCard.appendChild(newAuthorsName);
-
-    newCard.classList.add('card');
-    newCard.classList.add('headline');
-    newCard.classList.add('author');
-    newCard.classList.add('img-container');
-
-    newHeadLine.textContent =  Card.articles.bootstrap[2].headline;
-
-    return newCard
-}
-
-
+// function UserCard(Card1){
+//         const newCard1 = document.createElement("div");
+//         const newHeadLine = document.createElement("div");
+//         const newAuthor = document.createElement("div");
+//         const newimg = document.createElement("div");
+//         const newimgSrc = document.createElement("img");
+//         const newAuthorsName = document.createElement("span");
+    
+//         newCard1.appendChild(newHeadLine);
+//         newCard1.appendChild(newimgSrc);
+//         newCard1.appendChild(newAuthor);
+//         newAuthor.appendChild(newAuthorsName);
+    
+    
+//         newCard1.classList.add('card');
+//         newHeadLine.classList.add('headline');
+//         newAuthor.classList.add('author');
+//         newimg.classList.add('img-container');
+    
+//         newHeadLine.textContent =  Card1.articles.javascript[1].headline;
+//         newimgSrc.src = Card1.articles.javascript[1].authorPhoto;
+//         newAuthorsName.textContent = Card1.articles.javascript[1].authorName;
+    
+//         return newCard1
+//     }
+    
