@@ -31,33 +31,48 @@
 //           })
 //   })
 
-axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
-    .then(res => {
-        const js = res.data.articles.javascript;
-        js.forEach(article => {
-        cardsContainer.appendChild(UserCard(article))
-        })
-        const bootstrap = res.data.articles.bootstrap;
-        bootstrap.forEach(article => {
-        cardsContainer.appendChild(UserCard(article))
-        })
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+    .then(response => {
+        // console.log(response);
+        let articles = response.data.articles;
+        for(topic in articles){
+            console.log(articles[topic])
+            articles[topic].forEach(item => {
+                let newCard = UserCard(item);
+                cardsContainer.appendChild(newCard);
+            })
+        }
+    })
+    .catch(error => {
+        console.log(error)
+    })
 
-        const technology = res.data.articles.technology;
-        technology.forEach(article => {
-        cardsContainer.appendChild(UserCard(article))
-        })
-    
-        const jquery = res.data.articles.jquery;
-        jquery.forEach(article => {
-        cardsContainer.appendChild(UserCard(article))
-        })
-    
-        const node = res.data.articles.node;
-        node.forEach(article => {
-        cardsContainer.appendChild(UserCard(article))
-        })
+//         const js = res.data.articles.javascript;
+//         js.forEach(article => {
+//         cardsContainer.appendChild(UserCard(article))
+//         })
 
-})
+//         const bootstrap = res.data.articles.bootstrap;
+//         bootstrap.forEach(article => {
+//         cardsContainer.appendChild(UserCard(article))
+//         })
+
+//         const technology = res.data.articles.technology;
+//         technology.forEach(article => {
+//         cardsContainer.appendChild(UserCard(article))
+//         })
+    
+//         const jquery = res.data.articles.jquery;
+//         jquery.forEach(article => {
+//         cardsContainer.appendChild(UserCard(article))
+//         })
+    
+//         const node = res.data.articles.node;
+//         node.forEach(article => {
+//         cardsContainer.appendChild(UserCard(article))
+//         })
+
+// })
 
     const cardsContainer = document.querySelector('.cards-container');
      
@@ -82,7 +97,7 @@ function UserCard(Card){
     newAuthor.classList.add('author');
     newimg.classList.add('img-container');
 
-    newHeadLine.textContent =  `${Card.headline}`;
+    newHeadLine.textContent =  Card.headline;
     newimgSrc.src = Card.authorPhoto;
     newAuthorsName.textContent = Card.authorName;
 
